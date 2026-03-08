@@ -171,19 +171,19 @@ canvas{display:block;width:100%;height:100%}
     <div class="hint-card" id="h1" onclick="revealHint(1)">
       <div class="hint-num">HINT 01</div>
       <div class="hint-lock">* * *</div>
-      <div class="hint-text">Look in his Instagram bio</div>
+      <div class="hint-text">Tìm ở Instagram bio của a</div>
       <div class="hint-tap">Tap to reveal</div>
     </div>
     <div class="hint-card" id="h2" onclick="revealHint(2)">
       <div class="hint-num">HINT 02</div>
       <div class="hint-lock">* * *</div>
-      <div class="hint-text">He always calls you halinh...</div>
+      <div class="hint-text">Tìm ở bio Facebook </div>
       <div class="hint-tap">Tap to reveal</div>
     </div>
     <div class="hint-card" id="h3" onclick="revealHint(3)">
       <div class="hint-num">HINT 03</div>
       <div class="hint-lock">* * *</div>
-      <div class="hint-text">"Do you have ......?" said Ha Linh</div>
+      <div class="hint-text">"Anh có ....... ?" said Ha Linh ( 7 chữ không tính dấu)</div>
       <div class="hint-tap">Tap to reveal</div>
     </div>
   </div>
@@ -195,7 +195,7 @@ canvas{display:block;width:100%;height:100%}
       <button class="pw-btn" onclick="checkPw()">OPEN</button>
     </div>
     <div class="pw-err" id="pwErr">Wrong password, try again</div>
-    <div class="pw-hint-label">Each hint is one part of the password</div>
+    <div class="pw-hint-label">Each hint is one part of the password(viết liền không dấu)</div>
   </div>
 </div>
 
@@ -205,8 +205,8 @@ canvas{display:block;width:100%;height:100%}
 <div id="msg">
   <div class="orn">· · · ✦ · · ·</div>
   <div class="msg-to">FOR HÀ LINH</div>
-  <div class="msg-body">Happy 8/3 My Love 🌹</div>
-  <div class="msg-date">8 · III · 2026</div>
+  <div class="msg-body">Happy 8/3 My Baby</div>
+  <div class="msg-date">8 · 3 · 2026</div>
 </div>
 
 <div id="progWrap">
@@ -257,7 +257,7 @@ function checkPw(){
     err.classList.remove('show');
     document.getElementById('lock').classList.add('out');
     const dots=document.getElementById('progDots');
-    for(let i=0;i<12;i++){const d=document.createElement('div');d.className='pdot';d.id=`pd${i}`;dots.appendChild(d);}
+    for(let i=0;i<20;i++){const d=document.createElement('div');d.className='pdot';d.id=`pd${i}`;dots.appendChild(d);}
     setTimeout(()=>{document.getElementById('stage').classList.add('on');initBouquet();},900);
   } else {
     err.classList.add('show');
@@ -443,8 +443,8 @@ function makeLeafMesh(mat, sc){
    Returns the world-space bottom point.
 ════════════════════════════════ */
 function buildLocalStem(group, sc, stemLen){
-  const stemMat=new THREE.MeshPhongMaterial({color:0x1d6424,shininess:22,emissive:new THREE.Color(0x061a08)});
-  const leafMat=new THREE.MeshPhongMaterial({color:0x22882c,emissive:new THREE.Color(0x083010),side:THREE.DoubleSide,shininess:30});
+  const stemMat=new THREE.MeshPhongMaterial({color:0x0e7020,shininess:28,emissive:new THREE.Color(0x043010)});
+  const leafMat=new THREE.MeshPhongMaterial({color:0x12d030,emissive:new THREE.Color(0x065018),side:THREE.DoubleSide,shininess:45});
 
   const jx=rand(-.05,.05)*sc, jz=rand(-.05,.05)*sc;
   const curve=new THREE.CatmullRomCurve3([
@@ -482,8 +482,8 @@ function buildLocalStem(group, sc, stemLen){
    (which is where the local stem starts).
 ════════════════════════════════ */
 function buildTrunkAndBranches(bouquet, roses){
-  const stemMat=new THREE.MeshPhongMaterial({color:0x1a5c20,shininess:20,emissive:new THREE.Color(0x061408)});
-  const leafMat=new THREE.MeshPhongMaterial({color:0x249030,emissive:new THREE.Color(0x0a2c10),side:THREE.DoubleSide,shininess:32});
+  const stemMat=new THREE.MeshPhongMaterial({color:0x0c6a1a,shininess:24,emissive:new THREE.Color(0x042c0a)});
+  const leafMat=new THREE.MeshPhongMaterial({color:0x10c828,emissive:new THREE.Color(0x054814),side:THREE.DoubleSide,shininess:50});
 
   // Central trunk
   const trunkPts=[
@@ -576,37 +576,50 @@ function initBouquet(){
   camera.position.set(0,1.2,4.8);
 
   /* Lights */
-  scene.add(new THREE.AmbientLight(0x0e1a0e,5));
-  const lKey =new THREE.PointLight(0xffc0d8,18,24); lKey.position.set( 4,8,6);  scene.add(lKey);
-  const lFill=new THREE.PointLight(0xd41848,10,15); lFill.position.set(-5,1,4); scene.add(lFill);
-  const lGold=new THREE.PointLight(0xc84060, 6,20); lGold.position.set( 1,-1,-7);scene.add(lGold);
-  const lLow =new THREE.PointLight(0xff3060, 8,13); lLow.position.set( 0,-4,2); scene.add(lLow);
-  const lBack=new THREE.PointLight(0x800828, 5,18); lBack.position.set(-2,5,-6);scene.add(lBack);
-  const lRim =new THREE.PointLight(0xff80a0, 5,12); lRim.position.set( 5,2,-4); scene.add(lRim);
-  // Green light to make leaves pop
+  scene.add(new THREE.AmbientLight(0x100e18,5));
+  const lKey =new THREE.PointLight(0xffc0d8,18,26); lKey.position.set( 4,8,6);  scene.add(lKey);
+  const lFill=new THREE.PointLight(0xd41848,10,16); lFill.position.set(-5,1,4); scene.add(lFill);
+  const lGold=new THREE.PointLight(0xf0c000, 5,18); lGold.position.set( 3,-1,-5);scene.add(lGold);
+  const lLow =new THREE.PointLight(0xff3060, 8,14); lLow.position.set( 0,-4,2); scene.add(lLow);
+  const lBack=new THREE.PointLight(0x800828, 4,20); lBack.position.set(-2,5,-6);scene.add(lBack);
+  const lRim =new THREE.PointLight(0xff80a0, 5,14); lRim.position.set( 5,2,-4); scene.add(lRim);
   const lGreen=new THREE.PointLight(0x40cc50, 6,14); lGreen.position.set(0,-1,3); scene.add(lGreen);
+  // Colorful accent lights for the new flowers
+  const lPurple=new THREE.PointLight(0x9040f0, 5,14); lPurple.position.set(-3,1,1); scene.add(lPurple);
+  const lBlue  =new THREE.PointLight(0x4060ff, 4,12); lBlue.position.set( 3,-1,2); scene.add(lBlue);
+  const lOrange=new THREE.PointLight(0xff6010, 4,12); lOrange.position.set(-2,-1,2); scene.add(lOrange);
 
-  /* 9 + 3 BIG Roses — vivid fire-engine RED */
+  /* 2 ULTRA-RED openers + 12 red roses + 5 colorful + 1 extra blue = 20 flowers */
   const ROSES=[
+    // ── 2 ULTRA RED openers — pure saturated red, bloom first ──
+    {p:[-0.7,-0.3, 2.0],rz: .18,rx: .24,sc:.92,t: 0,  ic:0x700000,oc:0xff0000,sp:0xff8080,cols:['#ff0000','#ee0000','#ff3030']},
+    {p:[ 0.7,-0.3, 2.0],rz:-.18,rx: .24,sc:.92,t: 1.6,ic:0x700000,oc:0xff0000,sp:0xff8080,cols:['#ff0000','#ee0000','#ff3030']},
     // ── front row ──
-    {p:[-1.4,-0.5, 1.4],rz: .30,rx: .18,sc:.80,t: 0,  ic:0x5a0008,oc:0xff0020,sp:0xff88a0,cols:['#ff0020','#cc0018','#ff4060']},
-    {p:[ 0,  -0.6, 1.8],rz: .00,rx: .22,sc:.82,t: 3.2,ic:0x600008,oc:0xff1028,sp:0xff7080,cols:['#ff1028','#d40018','#ff3850']},
-    {p:[ 1.4,-0.5, 1.4],rz:-.28,rx: .18,sc:.80,t: 6.4,ic:0x520008,oc:0xf80022,sp:0xff7888,cols:['#f80022','#c8000e','#ff3858']},
+    {p:[-1.4,-0.5, 1.4],rz: .30,rx: .18,sc:.80,t: 4.8, ic:0x5a0008,oc:0xff0020,sp:0xff88a0,cols:['#ff0020','#cc0018','#ff4060']},
+    {p:[ 0,  -0.6, 1.8],rz: .00,rx: .22,sc:.82,t: 8.0, ic:0x600008,oc:0xff1028,sp:0xff7080,cols:['#ff1028','#d40018','#ff3850']},
+    {p:[ 1.4,-0.5, 1.4],rz:-.28,rx: .18,sc:.80,t:11.2, ic:0x520008,oc:0xf80022,sp:0xff7888,cols:['#f80022','#c8000e','#ff3858']},
     // ── mid row ──
-    {p:[-1.6, 0.1, 0.1],rz: .24,rx: .06,sc:.90,t: 9.6, ic:0x4e0008,oc:0xee0018,sp:0xff6070,cols:['#ee0018','#be000c','#ff2848']},
-    {p:[ 0,   0.2, 0.2],rz: .00,rx: .04,sc:.95,t:12.8, ic:0x58000a,oc:0xff0830,sp:0xff8090,cols:['#ff0830','#cc0820','#ff3858']},
-    {p:[ 1.6, 0.1, 0.1],rz:-.22,rx: .06,sc:.90,t:16.0, ic:0x4a0006,oc:0xf00020,sp:0xff6878,cols:['#f00020','#c0000e','#ff3050']},
+    {p:[-1.6, 0.1, 0.1],rz: .24,rx: .06,sc:.90,t:14.4, ic:0x4e0008,oc:0xee0018,sp:0xff6070,cols:['#ee0018','#be000c','#ff2848']},
+    {p:[ 0,   0.2, 0.2],rz: .00,rx: .04,sc:.95,t:17.6, ic:0x58000a,oc:0xff0830,sp:0xff8090,cols:['#ff0830','#cc0820','#ff3858']},
+    {p:[ 1.6, 0.1, 0.1],rz:-.22,rx: .06,sc:.90,t:20.8, ic:0x4a0006,oc:0xf00020,sp:0xff6878,cols:['#f00020','#c0000e','#ff3050']},
     // ── back row ──
-    {p:[-1.1, 0.9,-1.3],rz: .16,rx:-.10,sc:.86,t:19.2, ic:0x540008,oc:0xfa0018,sp:0xff5870,cols:['#fa0018','#c8000e','#ff3860']},
-    {p:[ 0,   1.1,-1.5],rz: .00,rx:-.12,sc:.92,t:22.4, ic:0x5c000a,oc:0xff1030,sp:0xff80a0,cols:['#ff1030','#d00818','#ff4870']},
-    {p:[ 1.1, 0.9,-1.3],rz:-.16,rx:-.10,sc:.86,t:25.6, ic:0x500008,oc:0xf50020,sp:0xff7890,cols:['#f50020','#c2000e','#ff3860']},
-    // ── 3 GRAND roses — largest, most vivid ──
-    {p:[ 0,   0.7, 0.6],rz: .00,rx: .05,sc:1.20,t:28.8, ic:0x660008,oc:0xff0018,sp:0xff6070,cols:['#ff0018','#dd0010','#ff3858']},
-    {p:[-2.1, 0.4,-0.3],rz: .32,rx: .08,sc:1.15,t:32.0, ic:0x5e0008,oc:0xff0820,sp:0xff6878,cols:['#ff0820','#d80010','#ff4060']},
-    {p:[ 2.1, 0.4,-0.3],rz:-.30,rx: .08,sc:1.15,t:35.2, ic:0x620008,oc:0xff0022,sp:0xff6070,cols:['#ff0022','#dc0012','#ff3858']},
+    {p:[-1.1, 0.9,-1.3],rz: .16,rx:-.10,sc:.86,t:24.0, ic:0x540008,oc:0xfa0018,sp:0xff5870,cols:['#fa0018','#c8000e','#ff3860']},
+    {p:[ 0,   1.1,-1.5],rz: .00,rx:-.12,sc:.92,t:27.2, ic:0x5c000a,oc:0xff1030,sp:0xff80a0,cols:['#ff1030','#d00818','#ff4870']},
+    {p:[ 1.1, 0.9,-1.3],rz:-.16,rx:-.10,sc:.86,t:30.4, ic:0x500008,oc:0xf50020,sp:0xff7890,cols:['#f50020','#c2000e','#ff3860']},
+    // ── 3 GRAND red roses ──
+    {p:[ 0,   0.7, 0.6],rz: .00,rx: .05,sc:1.20,t:33.6, ic:0x660008,oc:0xff0018,sp:0xff6070,cols:['#ff0018','#dd0010','#ff3858']},
+    {p:[-2.1, 0.4,-0.3],rz: .32,rx: .08,sc:1.15,t:36.8, ic:0x5e0008,oc:0xff0820,sp:0xff6878,cols:['#ff0820','#d80010','#ff4060']},
+    {p:[ 2.1, 0.4,-0.3],rz:-.30,rx: .08,sc:1.15,t:40.0, ic:0x620008,oc:0xff0022,sp:0xff6070,cols:['#ff0022','#dc0012','#ff3858']},
+    // ── 5 COLORFUL blooms ──
+    {p:[-2.8, 0.3, 0.0],rz: .38,rx: .08,sc:.85,t:43.2, ic:0x180830,oc:0xb060f0,sp:0xe0b0ff,cols:['#b060f0','#8030d0','#d090ff']},
+    {p:[ 2.8, 0.3, 0.0],rz:-.36,rx: .08,sc:.85,t:46.4, ic:0x2a1800,oc:0xf0c000,sp:0xffe070,cols:['#f0c000','#c89000','#ffe040']},
+    {p:[-2.2,-0.4, 1.6],rz: .34,rx: .20,sc:.82,t:49.6, ic:0x2c0c00,oc:0xff6010,sp:0xffb070,cols:['#ff6010','#d04000','#ff8840']},
+    {p:[ 0.4, 1.6,-2.0],rz:-.06,rx:-.16,sc:.88,t:52.8, ic:0x3c1020,oc:0xffc0d8,sp:0xfff0f8,cols:['#ffc0d8','#f090b8','#ffe8f4']},
+    {p:[ 2.2,-0.4, 1.6],rz:-.32,rx: .20,sc:.82,t:56.0, ic:0x080828,oc:0x5060f8,sp:0xa0b0ff,cols:['#5060f8','#2030c8','#8090ff']},
+    {p:[-2.6,-0.2, 1.2],rz: .36,rx: .14,sc:.88,t:59.2, ic:0x040820,oc:0x2090ff,sp:0x90d0ff,cols:['#2090ff','#0060d8','#70c0ff']},
   ];
 
-  const TOTAL_DUR=ROSES[11].t+BLOOM_DUR;
+  const TOTAL_DUR=ROSES[19].t+BLOOM_DUR;
   const MSG_TIME=TOTAL_DUR+2.5;
 
   ROSES.forEach(r=>spawnPetals(r.cols,6,r.t*1000));
@@ -657,10 +670,12 @@ function initBouquet(){
     return{pos,vel,geo,yT:yRange*.85};
   }
   const pts=[
-    mkPts(350,22,15,0xff6090,.025,.0025),
-    mkPts(180,10, 9,0xff2850,.018,.0018),
-    mkPts(100,16,11,0xffa0c0,.013,.0014),
-    mkPts( 80, 7, 8,0xd01040,.012,.0012),
+    mkPts(300,24,15,0xff6090,.024,.0025),
+    mkPts(120,10, 9,0xff2850,.017,.0018),
+    mkPts(100,18,12,0xb060f0,.014,.0015),   // purple
+    mkPts( 80, 8, 9,0xf0c000,.013,.0013),   // gold
+    mkPts( 60,14,10,0xff6010,.012,.0014),   // orange
+    mkPts( 50, 8, 8,0x5060f8,.012,.0012),   // blue
   ];
   function tickPts(){pts.forEach(p=>{for(let i=0;i<p.vel.length;i++){p.pos[i*3]+=p.vel[i].x;p.pos[i*3+1]+=p.vel[i].y;p.pos[i*3+2]+=p.vel[i].z;if(p.pos[i*3+1]>p.yT)p.pos[i*3+1]=-2;}p.geo.attributes.position.needsUpdate=true;})}
 
@@ -671,14 +686,14 @@ function initBouquet(){
   const ffMat=new THREE.PointsMaterial({color:0xff80a8,size:.05,transparent:true,opacity:0,blending:THREE.AdditiveBlending,depthWrite:false});
   scene.add(new THREE.Points(ffGeo,ffMat));
 
-  /* Camera — pulls back further to frame the wider 12-rose bouquet */
+  /* Camera — pulls back further for 17-flower wide bouquet */
   function camAt(T){
     const prog=clamp(T/TOTAL_DUR,0,1);
-    const R=lerp(5.4,13.0,eout3(prog));
-    const cy=lerp(1.2,3.8,eout3(prog));
-    const ang=lerp(0,Math.PI*1.25,eout5(prog));
-    const sw=Math.sin(T*.18)*.3;
-    return{x:Math.sin(ang)*R+sw,y:cy+Math.sin(T*.06)*.2,z:Math.cos(ang)*R,ly:lerp(.5,1.0,eout3(prog))};
+    const R=lerp(5.4,15.0,eout3(prog));
+    const cy=lerp(1.2,4.2,eout3(prog));
+    const ang=lerp(0,Math.PI*1.3,eout5(prog));
+    const sw=Math.sin(T*.26)*.35;
+    return{x:Math.sin(ang)*R+sw,y:cy+Math.sin(T*.06)*.2,z:Math.cos(ang)*R,ly:lerp(.5,1.1,eout3(prog))};
   }
 
   /* Render loop */
@@ -691,7 +706,7 @@ function initBouquet(){
 
     const after=T>TOTAL_DUR;
     if(!after){const{x,y,z,ly}=camAt(T);camera.position.set(x,y,z);camera.lookAt(0,ly,0);}
-    else{const orb=T*.045,r=13.5;camera.position.set(Math.sin(orb)*r,3.6+Math.sin(T*.04)*.35,Math.cos(orb)*r);camera.lookAt(0,.9,0);}
+    else{const orb=T*.09,r=15.5;camera.position.set(Math.sin(orb)*r,4.0+Math.sin(T*.05)*.4,Math.cos(orb)*r);camera.lookAt(0,1.0,0);}
 
     allPetals.forEach(({pivot,mesh,fR,yPos,tilt,angle,b0,b1})=>{
       const t=eio3(clamp((T-b0)/(b1-b0),0,1));
@@ -716,8 +731,8 @@ function initBouquet(){
 
     tickPts();
 
-    const roseIdx=Math.floor(T/(TOTAL_DUR/12));
-    if(roseIdx>lastDot){lastDot=roseIdx;for(let i=0;i<=Math.min(roseIdx,11);i++)document.getElementById(`pd${i}`)?.classList.add('lit');}
+    const roseIdx=Math.floor(T/(TOTAL_DUR/20));
+    if(roseIdx>lastDot){lastDot=roseIdx;for(let i=0;i<=Math.min(roseIdx,19);i++)document.getElementById(`pd${i}`)?.classList.add('lit');}
     document.getElementById('progFill').style.width=(clamp(T/TOTAL_DUR,0,1)*100)+'%';
 
     if(T>MSG_TIME&&!msgShown){msgShown=true;document.getElementById('msg').classList.add('on');document.getElementById('progWrap').classList.add('hide');}
